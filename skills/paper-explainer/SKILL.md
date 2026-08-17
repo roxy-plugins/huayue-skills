@@ -1,7 +1,7 @@
 ---
 name: paper-explainer
 description: 深读论文全文后，用举例+反例+数学细节逐步拆解的方式讲给花月哥哥听。触发词：展开讲讲, 展开讲讲某篇论文, 详细讲讲, 给我讲论文, 详细给我讲一讲, 这篇论文讲讲, 深入讲讲, 展开讲这篇
-metadata: {"akashic": {"always": false}}
+metadata: {"roxy": {"always": false}}
 ---
 
 # 论文详细讲解 skill

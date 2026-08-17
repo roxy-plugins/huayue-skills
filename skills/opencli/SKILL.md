@@ -1,7 +1,7 @@
 ---
 name: opencli
 description: OpenCLI 适配器操作。用 opencli 命令操作 B站、GitHub、DeepSeek 平台、HackerNews、V2EX 等站点，获取结构化数据。触发词：opencli, 用 opencli, 查 B站, B站热榜, bilibili, 查 GitHub, GitHub 通知, DeepSeek 用量, hackernews, v2ex, opencli browser
-metadata: {"akashic": {"always": false, "requires": {"bins": ["opencli"], "env": []}}}
+metadata: {"roxy": {"always": false, "requires": {"bins": ["opencli"], "env": []}}}
 ---
 
 # OpenCLI 使用指南
@@ -43,8 +43,8 @@ opencli github notifications -f json
 opencli github detail "<owner>/<repo>" -f json
 
 # DeepSeek 用量（两步：打开页面 → 提取）
-opencli browser akashic open "https://platform.deepseek.com/usage" --window background
-opencli browser akashic extract --window background
+opencli browser roxy open "https://platform.deepseek.com/usage" --window background
+opencli browser roxy extract --window background
 
 # YouTube
 opencli youtube video "<id>" -f json
