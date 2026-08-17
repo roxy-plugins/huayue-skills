@@ -192,7 +192,7 @@ endArrow=open;endSize=14;
 将生成的 XML 写入 `.drawio` 文件：
 
 ```bash
-OUTPUT_DIR="${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/diagrams"
+OUTPUT_DIR="${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/diagrams"
 mkdir -p "$OUTPUT_DIR"
 echo "$XML_CONTENT" > "$OUTPUT_DIR/<diagram_name>.drawio"
 ```
@@ -216,7 +216,7 @@ echo "$XML_CONTENT" > "$OUTPUT_DIR/<diagram_name>.drawio"
 
 导出命令：
 ```bash
-OUTPUT_DIR="${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/diagrams"
+OUTPUT_DIR="${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/diagrams"
 drawio -x -f png -b 20 -o "$OUTPUT_DIR/<name>.png" "$OUTPUT_DIR/<name>.drawio"
 ```
 
@@ -313,7 +313,7 @@ drawio -x -f png -b 20 -o "$OUTPUT_DIR/<name>.png" "$OUTPUT_DIR/<name>.drawio"
 
 **无需特殊语法**，自然语言描述即可。技能自动匹配中英文。
 
-**输出位置**：`$AKASHIC_WORKSPACE/diagrams/`
+**输出位置**：`$ROXY_WORKSPACE/diagrams/`
 
 **打开方式**：
 - 在线：拖入 https://app.diagrams.net/

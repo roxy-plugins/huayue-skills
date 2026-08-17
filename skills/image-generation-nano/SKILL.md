@@ -18,8 +18,8 @@ allowed-tools: Bash(curl), Bash(base64), Bash(mkdir), Bash(echo)
 
 ## 🔑 前置条件
 
-1. **API Key**: 必须存在环境变量 `GEMINI_API_KEY` 或文件 `$AKASHIC_WORKSPACE/memory/GEMINI_API_KEY`。
-2. **输出目录**: 默认输出到 `$AKASHIC_WORKSPACE/pictures/`（自动创建）。
+1. **API Key**: 必须存在环境变量 `GEMINI_API_KEY` 或文件 `$ROXY_WORKSPACE/memory/GEMINI_API_KEY`。
+2. **输出目录**: 默认输出到 `$ROXY_WORKSPACE/pictures/`（自动创建）。
 
 ## 🛠️ 核心执行逻辑
 
@@ -31,8 +31,8 @@ allowed-tools: Bash(curl), Bash(base64), Bash(mkdir), Bash(echo)
 ```bash
 if [ -n "$GEMINI_API_KEY" ]; then
   API_KEY="$GEMINI_API_KEY"
-elif [ -f "${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/memory/GEMINI_API_KEY" ]; then
-  API_KEY=$(cat "$AKASHIC_WORKSPACE/memory/GEMINI_API_KEY")
+elif [ -f "${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/memory/GEMINI_API_KEY" ]; then
+  API_KEY=$(cat "$ROXY_WORKSPACE/memory/GEMINI_API_KEY")
 else
   echo "❌ 错误：未找到 GEMINI_API_KEY。请设置环境变量或写入记忆文件。"
   exit 1
@@ -101,7 +101,7 @@ fi
 
 ### 4. 保存图片
 ```bash
-OUTPUT_DIR="${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/pictures"
+OUTPUT_DIR="${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/pictures"
 mkdir -p "$OUTPUT_DIR"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 # 如果是编辑模式，文件名加上 _edited 后缀
@@ -124,7 +124,7 @@ bash -c '
   if [ -n "${GEMINI_API_KEY:-}" ]; then
     API_KEY="$GEMINI_API_KEY";
   else
-    API_KEY=$(cat "${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/memory/GEMINI_API_KEY");
+    API_KEY=$(cat "${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/memory/GEMINI_API_KEY");
   fi;
   PROMPT="一张照片级真实感的特写肖像，一只可爱的猫咪，赛博朋克风格，霓虹灯背景，蓝色和紫色调，未来科技感，1:1 正方形构图";
   RATIO="1:1";
@@ -133,8 +133,8 @@ bash -c '
   RESPONSE=$(curl -s -X POST "$ENDPOINT" -H "x-goog-api-key: $API_KEY" -H "Content-Type: application/json" -d "$PAYLOAD");
   BASE64_IMG=$(echo "$RESPONSE" | grep -oP "\"inlineData\":\{\"mimeType\":\"image/png\",\"data\":\"\\K[^\"]+" | head -n 1);
   if [ -n "$BASE64_IMG" ]; then
-    mkdir -p "$AKASHIC_WORKSPACE/pictures";
-    echo "$BASE64_IMG" | base64 -d > "$AKASHIC_WORKSPACE/pictures/nano_$(date +%Y%m%d_%H%M%S).png";
+    mkdir -p "$ROXY_WORKSPACE/pictures";
+    echo "$BASE64_IMG" | base64 -d > "$ROXY_WORKSPACE/pictures/nano_$(date +%Y%m%d_%H%M%S).png";
     echo "✅ 生成成功";
   else
     echo "❌ 失败：$RESPONSE";

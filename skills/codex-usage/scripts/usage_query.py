@@ -135,7 +135,7 @@ def opencode_quota():
     req = urllib.request.Request(USAGE_URL, headers={
         "Authorization": f"Bearer {key}",
         "Content-Type": "application/json",
-        "User-Agent": "akashic-usage-query/1.0",
+        "User-Agent": "roxy-usage-query/1.0",
     })
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
         body = json.loads(resp.read().decode())

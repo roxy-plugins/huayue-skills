@@ -3,7 +3,7 @@
 # Usage: ./download.sh [options] URL
 #
 # Options:
-#   -p, --path PATH      Download path (default: $AKASHIC_WORKSPACE/downloads)
+#   -p, --path PATH      Download path (default: $ROXY_WORKSPACE/downloads)
 #   -a, --audio          Extract audio only (MP3)
 #   -s, --subs           Download subtitles
 #   -q, --quality NUM    Max video height (720, 1080, etc.)
@@ -94,7 +94,7 @@ if [[ "$LIST_FORMATS" == true ]]; then
 fi
 
 if [[ -z "$DOWNLOAD_PATH" ]]; then
-    DOWNLOAD_PATH="${AKASHIC_WORKSPACE:?AKASHIC_WORKSPACE is required}/downloads"
+    DOWNLOAD_PATH="${ROXY_WORKSPACE:?ROXY_WORKSPACE is required}/downloads"
 fi
 
 # Create download directory

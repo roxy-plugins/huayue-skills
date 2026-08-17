@@ -1,7 +1,7 @@
 ---
 name: gh-cli
 description: 使用 GitHub CLI (gh) 操作 GitHub 的 repositories、issues、pull requests、workflows、releases、代码搜索及 API 调用。触发词：github, gh, 代码库, 仓库, 推送, 提交, 分支, issue, pr, pull request, release, 工作流, workflow, 搜索代码, 查代码, push, commit, branch, 读文件, 合并
-metadata: {"akashic": {"always": false, "requires": {"bins": ["gh"], "env": []}}}
+metadata: {"roxy": {"always": false, "requires": {"bins": ["gh"], "env": []}}}
 ---
 
 # GitHub CLI (gh) Skill

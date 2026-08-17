@@ -72,7 +72,7 @@ with sync_playwright() as p:
     ctx = browser.contexts[0]
     page = ctx.new_page()
     page.goto("https://example.com", wait_until="networkidle", timeout=30000)
-    output = Path(os.environ["AKASHIC_WORKSPACE"]) / "pictures" / "screenshot.png"
+    output = Path(os.environ["ROXY_WORKSPACE"]) / "pictures" / "screenshot.png"
     output.parent.mkdir(parents=True, exist_ok=True)
     page.screenshot(path=str(output), full_page=True)
     page.close()
@@ -123,7 +123,7 @@ playwright 装在 agent venv 里，必须用这个解释器：
 
 系统 `python3` 没有 playwright，不要用。
 
-截图路径统一用 `$AKASHIC_WORKSPACE/pictures/`，之后用 message_push(image=...) 发。
+截图路径统一用 `$ROXY_WORKSPACE/pictures/`，之后用 message_push(image=...) 发。
 
 ## 注意事项
 
